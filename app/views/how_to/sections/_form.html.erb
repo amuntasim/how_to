@@ -1,0 +1,33 @@
+<%= form_for @section, :html => {:class => 'form-horizontal'} do |f| %>
+    <fieldset>
+      <legend><%= controller.action_name.capitalize %> Section</legend>
+
+      <div class="control-group">
+        <%= f.label :parent_section, :class => 'control-label' %>
+        <div class="controls">
+          <%= f.select :parent_id, nested_set_options(HowTo::Section.active.roots_only.without(@section.id)) { |i| "#{'-' * i.level} #{i.name}" }, {:prompt => 'select'}, :'chosen-enabled' => true %>
+        </div>
+      </div>
+
+      <% I18n.available_locales.each do |locale| %>
+          <div class="control-group">
+            <%= f.label :name, "Name for #{locale}", :class => 'control-label' %>
+            <div class="controls">
+              <%= f.text_field "i18n_#{locale.to_s}_name", :class => 'text_field' %>
+            </div>
+          </div>
+
+      <% end %>
+
+      <div class="control-group">
+        <%= f.label :order, :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :order, :class => 'text_field'%>
+        </div>
+      </div>
+      <div class="form-actions">
+        <%= f.submit nil, :class => 'btn btn-primary' %>
+        <%= link_to 'Cancel', sections_path, :class => 'btn' %>
+      </div>
+    </fieldset>
+<% end %>

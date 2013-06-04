@@ -1,0 +1,13 @@
+<%= link_to "Home", root_path, :class => 'brand' %>
+<% if can_manage_how_to? %>
+    <ul class="nav">
+
+      <li>
+        <%= link_to 'Sections', :sections %>
+      </li>
+
+      <li>
+        <%= link_to 'Contents', :contents %>
+      </li>
+    </ul>
+<% end %>

@@ -1,0 +1,18 @@
+<h1>Section</h1>
+
+<p>
+  <b>Name</b><br>
+  <%= @section.name %>
+</p>
+
+<p>
+  <b>Active</b><br>
+  <%= @section.active %>
+</p>
+
+
+<div class="form-actions">
+  <%= link_to 'Back', sections_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_section_path(@section), :class => 'btn' %>
+  <%= link_to 'Delete', section_path(@section), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>
