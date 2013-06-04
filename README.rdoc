@@ -1,6 +1,8 @@
 = HowTo
 
-Rails engine that makes managing faq/manual easy and simple. 
+Rails engine that makes managing faq/manual easy and simple. Multilingual CMS for managing faq, question/answer, manual etc.
+
+
 
 ===Usage
 ======Include the gem in your Gemfile and bundle to install the gem.
@@ -10,11 +12,30 @@ Rails engine that makes managing faq/manual easy and simple.
 ===== Install the migrations
   rake how_to:install:migrations
   
+===== Mount in your application's route
+  mount HowTo::Engine => "/how_to"
 
 ===== You can also get the configuration file and overrides by running the config generator.
   rails g how_to:config
  
 Details are documented in config file, so please read the config file carefully.
+
+====== rake db:migrate and visit mounted location, e.g.
+
+  localhost:3000/how_to
+  
+You should see the public page. You should also see two links on head section named sections and contents. if you override the authorization methods (described in later section) make sure you have permissions to access those pages.
+
+===Modules
+Two models are there.
+
+==== Section
+You can have multilevel section. You can consider this as category. Sections are hierarchical, but only leaves are eligible to have contents 
+
+
+==== Content
+You can create content as question/answer or faq under a specific section. If you love rich text editor for content then see the last section of Readme.
+
 
 ===== Sample helper methods you may need to define them in your application controller
 
