@@ -1,20 +1,42 @@
 = HowTo
 
+Rails engine that makes managing faq/manual easy and simple. 
 
-= Sample helper methods you may need
+===Usage
+======Include the gem in your Gemfile and bundle to install the gem.
+  
+  gem 'how_to'
+  
+===== Install the migrations
+  rake how_to:install:migrations
+  
 
-  def authorize_to_manage_how_to!
+===== You can also get the configuration file and overrides by running the config generator.
+  rails g how_to:config
+ 
+Details are documented in config file, so please read the config file carefully.
+
+===== Sample helper methods you may need to define them in your application controller
+
+  def authorize_to_manage_how_to! #you can set the method name in config file
     redirect_to :root, :notice => t('notifications.admin_section_access_error') unless admin?
   end
 
-  def allowed_to_view_how_to
+  def allowed_to_view_how_to #you can set the method name in config file
     redirect_to main_app.root_path, :notice => t('notifications.admin_section_access_error') unless current_user
   end
 
-  def permitted_to_manage_how_to?
+  def permitted_to_manage_how_to? #you can set the method name in config file
     admin?
   end
 
+
+===== Optionaly you can customise the layout and view page using:
+  rails g how_to:layout #this will generate layout and associated partials under views/layouts/how_to/
+  rails g how_to:view  #this will generate the public page for faq/manual  under views/how_to/
+
+
+===== If you want to use rich text editor to manage your content HowTo uses Mercury gem for it. Just install mercury gem and configure as per your requirements. https://github.com/jejacks0n/mercury
 
 
 This project rocks and uses MIT-LICENSE.
