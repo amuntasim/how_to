@@ -93,6 +93,9 @@
 </script>
 
 <style type="text/css">
+    body {
+        direction: ltr;
+    }
 
     .faq_content .row-fluid {
         background: #eee;
@@ -101,7 +104,7 @@
     .faq_content {
         font: 14px/24px helvetica, arial, sans-serif;
         color: #666666;
-        padding: 0 20px !important;
+        padding-left: 20px !important;
     }
 
     .faq_content a:focus {
@@ -235,5 +238,57 @@
         width: 30.5%;
     }
 
+        /************************************/
+    .content-wapper {
+        position: relative;
+    }
 
+    .welcome ul {
+        padding: 0;
+        margin: 0;
+    }
+
+    .welcome ul li {
+        list-style: none;
+        display: inline;
+
+    }
+
+    body.rtl {
+        direction: rtl;
+    }
+
+        /*************Bootstrap property**********/
+    .rtl .row-fluid [class*="span"], .rtl .navbar .brand {
+        float: right !important;
+    }
+
+    .rtl .pull-right {
+        float: left;
+    }
+
+        /*************Bootstrap property**********/
+
+    .rtl  .faq_content .row-fluid {
+        background: #eee;
+    }
+
+    .rtl  .faq_content {
+        font: 14px/24px helvetica, arial, sans-serif;
+        color: #666666;
+        padding-right: 20px !important;
+        padding-left: 0 !important;
+    }
+
+    .rtl  .faq_content li {
+        margin-right: 15px;
+    }
+
+    .rtl  .faq_content dl.faq dt {
+        font-weight: bold;
+        color: #000000;
+        padding: 15px 0 5px 0;
+        display: block;
+    }
 </style>
+

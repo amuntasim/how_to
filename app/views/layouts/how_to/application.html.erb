@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><%= content_for?(:title) ? yield(:title) : "App_Name" %></title>
@@ -17,19 +17,21 @@
     </div>
   </nav>
 </header>
-<div id="main" role="main">
-  <div class="container">
-    <div class="content">
-      <div class="row">
-        <div class="span12">
-          <%= render 'layouts/how_to/messages' %>
-          <%= yield %>
+<section class="content-wapper">
+  <div id="main" role="main" class="clearfix">
+    <div class="container-fluid">
+      <div class="content">
+        <div class="row-fluid">
+          <div class="span12">
+            <%= render 'layouts/how_to/messages' %>
+            <%= yield %>
+          </div>
         </div>
+        <footer>
+        </footer>
       </div>
-      <footer>
-      </footer>
     </div>
-  </div> <!--! end of .container -->
-</div> <!--! end of #main -->
+  </div>
+</section>
 </body>
 </html>
