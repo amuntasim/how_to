@@ -32,11 +32,25 @@ Details are documented in config file, so please read the config file carefully.
 
 
 ===== Optionaly you can customise the layout and view page using:
-  rails g how_to:layout #this will generate layout and associated partials under views/layouts/how_to/
-  rails g how_to:view  #this will generate the public page for faq/manual  under views/how_to/
+======this will generate layout and associated partials under views/layouts/how_to/
+  rails g how_to:layout
+  
+  
+  
+======this will generate the public page for faq/manual  under views/how_to/    
+  rails g how_to:view 
 
 
-===== If you want to use rich text editor to manage your content HowTo uses Mercury gem for it. Just install mercury gem and configure as per your requirements. https://github.com/jejacks0n/mercury
+
+
+=== If you want to use rich text editor to manage your content HowTo uses Mercury gem for it. Just install mercury gem and configure as per your requirements. Visit https://github.com/jejacks0n/mercury for more details
+Then set 
+  config.rich_text_enabled = true
+in initializers/how_to_config.rb file
+
+
+====For any issues feel free to contact with me or use issue tracker. Drop me a line to ahmed2tul@gmail.com 
+
 
 
 This project rocks and uses MIT-LICENSE.
