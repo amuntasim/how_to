@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  parent_id: 1
+  active: false
+  sub_sections_count: 1
+
+two:
+  parent_id: 1
+  active: false
+  sub_sections_count: 1

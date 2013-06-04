@@ -1,0 +1,20 @@
+= HowTo
+
+
+= Sample helper methods you may need
+
+  def authorize_to_manage_how_to!
+    redirect_to :root, :notice => t('notifications.admin_section_access_error') unless admin?
+  end
+
+  def allowed_to_view_how_to
+    redirect_to main_app.root_path, :notice => t('notifications.admin_section_access_error') unless current_user
+  end
+
+  def permitted_to_manage_how_to?
+    admin?
+  end
+
+
+
+This project rocks and uses MIT-LICENSE.
