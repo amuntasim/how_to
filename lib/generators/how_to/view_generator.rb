@@ -9,7 +9,7 @@ Description:
     Copies HowTo view (show.html.erb) file to your application's /views/how_to directory.
 DESC
       def generate_view
-        copy_file "faq/show.html.erb", "app/views/how_to/show.html.erb"
+        copy_file "faq/show.html.erb", "app/views/how_to/faq/show.html.erb"
       end
 
     end

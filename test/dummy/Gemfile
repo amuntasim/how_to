@@ -5,6 +5,15 @@ source "http://rubygems.org"
 # development dependencies will be added by default to the :development group.
 
 # jquery-rails is used by the dummy application
+gem "jquery-rails"
+gem 'bootstrap-sass'
+gem 'sass-rails',   '~> 3.2.5'
+gem 'globalize3'
+gem 'awesome_nested_set'
 gem 'mercury-rails'
+
 gem 'sqlite3'
 
+# To use debugger
+# gem 'debugger'
+gem 'paperclip'

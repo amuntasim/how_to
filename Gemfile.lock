@@ -1,8 +1,10 @@
 PATH
   remote: .
   specs:
-    how_to (0.0.1)
-      rails (~> 3.2.13)
+    how_to (0.0.3)
+      awesome_nested_set
+      globalize3
+      rails (>= 3.1.0)
 
 GEM
   remote: http://rubygems.org/
