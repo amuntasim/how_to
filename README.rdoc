@@ -8,7 +8,14 @@ Rails engine that makes managing faq/manual easy and simple. Multilingual CMS fo
 ======Include the gem in your Gemfile and bundle to install the gem.
   
   gem 'how_to'
+
+====You may need to add the following gems if you want to use default layout for how_to. See layout customization section for more details
   
+  gem "jquery-rails"
+  gem 'bootstrap-sass'
+  gem 'sass-rails',   '~> 3.2.5'
+
+
 ===== Install the migrations
   rake how_to:install:migrations
 

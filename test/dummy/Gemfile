@@ -8,10 +8,8 @@ source "http://rubygems.org"
 gem "jquery-rails"
 gem 'bootstrap-sass'
 gem 'sass-rails',   '~> 3.2.5'
-gem 'globalize3'
-gem 'awesome_nested_set'
 gem 'mercury-rails'
-
+gem 'how_to', :path => './lib/how_to_gem'
 gem 'sqlite3'
 
 # To use debugger
