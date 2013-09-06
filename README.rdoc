@@ -11,6 +11,10 @@ Rails engine that makes managing faq/manual easy and simple. Multilingual CMS fo
   
 ===== Install the migrations
   rake how_to:install:migrations
+
+===== Run db migrations
+  rake db:migrate
+
   
 ===== Mount in your application's route
   mount HowTo::Engine => "/how_to"
