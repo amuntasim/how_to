@@ -3,8 +3,9 @@
 Rails engine that makes managing faq/manual easy and simple. Multilingual CMS for managing faq, question/answer, manual etc.
 
 
-{link Live Demo}[http://how-to-demo.herokuapp.com]
-{link Live demo source code}[https://github.com/railscash/how_to_demo]
+{Live Demo}[http://how-to-demo.herokuapp.com]
+
+{Live demo source code}[https://github.com/railscash/how_to_demo]
 
    
 ===Usage
