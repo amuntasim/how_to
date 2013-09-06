@@ -2,10 +2,10 @@
 
 one:
   section_id: 1
-  order: 1
+  position: 1
   active: false
 
 two:
   section_id: 1
-  order: 1
+  position: 1
   active: false

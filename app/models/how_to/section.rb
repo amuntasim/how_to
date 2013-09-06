@@ -14,7 +14,7 @@ module HowTo
     scope :roots_only, where(:parent_id => nil)
     scope :without, ->(id) {   where("id <> ? ", id) if id.present?}
     scope :with_content, where("contents_count > 0")
-    scope :ordered, order("`order` ASC")
+    scope :ordered, order("position ASC")
 
     class Translation
       attr_accessible :locale, :name

@@ -40,7 +40,7 @@
           <h3>Select Category</h3>
 
           <div id="sidetreecontrol"><a href="?#">Collapse All</a> | <a href="?#">Expand All</a></div>
-          <%= sorted_nested_li(HowTo::Section.active, :order, "id='tree_root'") do |section| %>
+          <%= sorted_nested_li(HowTo::Section.active, :position, "id='tree_root'") do |section| %>
               <% if section.contents_count > 0 %>
                   <%= link_to section.name, "##{dom_id(section)}" %>
               <% else %>
