@@ -63,7 +63,5 @@ module HowTo
         format.html { redirect_to sections_url }
       end
     end
-
-
   end
 end

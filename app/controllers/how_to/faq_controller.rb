@@ -6,7 +6,5 @@ module HowTo
 
     def show
     end
-
-
   end
 end

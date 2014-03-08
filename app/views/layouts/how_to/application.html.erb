@@ -2,8 +2,8 @@
 <html xmlns="http://www.w3.org/1999/html">
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><%= content_for?(:title) ? yield(:title) : "App_Name" %></title>
-  <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "App_Name" %>">
+  <title><%= content_for?(:title) ? yield(:title) : "App Name" %></title>
+  <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "App desc" %>">
   <%= stylesheet_link_tag "how_to/application", :media => "all" %>
   <%= javascript_include_tag "how_to/application" %>
   <%= csrf_meta_tags %>

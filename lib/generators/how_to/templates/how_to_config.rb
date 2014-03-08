@@ -4,6 +4,10 @@ HowTo.configure do |config|
   #You have to install mercury to your application
   #config.rich_text_enabled = false
 
+  # You can override the layout name
+  #
+  #config.layout_name = 'application'
+
   #in your application controller:
   # def authorize_to_manage_how_to
   #  redirect_to :somewhere_else unless <condition>
