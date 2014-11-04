@@ -1,0 +1,84 @@
+<script type="text/javascript">
+    <% if HowTo.config.rich_text_enabled && params[:rich_text_enabled].nil? %>
+    location.href = "<%= "/editor" + request.path + "?rich_text_enabled=1"%>"
+    <% end %>
+
+    jQuery(window).on('mercury:ready', function () {
+
+        $('#how_to_content_submit').on('click', function () {
+            $.each($('[contenteditable=true]'), function () {
+                if ($(this).attr('target_id')) {
+                    $('#' + $(this).attr('target_id')).val($(this).html())
+                }
+            });
+            Mercury.changes = false;
+        });
+
+        Mercury.PageEditor.prototype.save = function () {
+            Mercury.changes = false;
+            $('#how_to_content_submit').trigger('click');
+        }
+
+    });
+
+</script>
+
+<%= form_for @content, :html => {:class => 'form-horizontal'} do |f| %>
+    <fieldset>
+      <legend><%= controller.action_name.capitalize %> Content</legend>
+
+      <div class="control-group">
+        <%= f.label :section, :class => 'control-label' %>
+        <div class="controls">
+          <%= f.select :section_id, HowTo::Section.leaves.active.collect { |c| [c.name, c.id] }, {:prompt => 'select'}, :'chosen-enabled' => true %>
+        </div>
+      </div>
+
+      <% I18n.available_locales.each do |locale| %>
+          <div class="control-group">
+            <%= f.label :title, "Title for #{locale}", :class => 'control-label' %>
+            <div class="controls">
+              <% if HowTo.config.rich_text_enabled %>
+                  <div target_id="<%= "content_i18n_#{locale.to_s}_title" %>" contenteditable="true" data-mercury="full" class="text_field_overide text_title">
+                    <%= raw f.object.send("i18n_#{locale.to_s}_title".to_sym) %>
+                  </div>
+                  <%= f.hidden_field "i18n_#{locale.to_s}_title", :class => 'text_field' %>
+              <% else %>
+                  <%= f.text_field "i18n_#{locale.to_s}_title", :class => 'text_field text_field_overide text_title' %>
+              <% end %>
+            </div>
+          </div>
+      <% end %>
+
+      <% I18n.available_locales.each do |locale| %>
+          <div class="control-group">
+            <%= f.label :description, "Description for #{locale}", :class => 'control-label' %>
+            <div class="controls">
+              <% if HowTo.config.rich_text_enabled %>
+                  <div target_id="<%= "content_i18n_#{locale.to_s}_description" %>" contenteditable="true" data-mercury="full" class="text_field_overide text_description">
+                    <%= raw f.object.send("i18n_#{locale.to_s}_description".to_sym) %>
+                  </div>
+
+                  <%= f.hidden_field "i18n_#{locale.to_s}_description", :class => 'text_field' %>
+              <% else %>
+                  <%= f.text_area "i18n_#{locale.to_s}_description", :class => 'text_field text_field_overide text_description' %>
+              <% end %>
+            </div>
+          </div>
+      <% end %>
+
+
+      <div class="control-group">
+        <%= f.label :position, :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :position, :class => 'text_field' %>
+        </div>
+      </div>
+      <div class="form-actions">
+        <%= f.submit nil, :class => 'btn btn-primary', id: 'how_to_content_submit' %>
+        <%= link_to 'Cancel', contents_path, :class => 'btn' %>
+      </div>
+    </fieldset>
+<% end %>
+
+

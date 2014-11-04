@@ -1,0 +1,24 @@
+<h1>Contents</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Section</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @contents.each do |content| %>
+      <tr>
+        <td><%= link_to content.title, content_path(content) %></td>
+        <td><%= content.section.name %></td>
+        <td>
+          <%= link_to 'Edit', edit_content_path(content), :class => 'btn btn-mini' %>
+          <%= link_to 'Destroy', content_path(content), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New', new_content_path, :class => 'btn btn-primary' %>
