@@ -1,11 +1,5 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery
-
-  def authorize_to_manage_how_to
-    #redirect_to :root
-  end
-
-  def permitted_to_manage_how_to?
-    true
-  end
+  # Prevent CSRF attacks by raising an exception.
+  # For APIs, you may want to use :null_session instead.
+  protect_from_forgery with: :exception
 end
