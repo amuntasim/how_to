@@ -1,14 +1,37 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 <head>
-  <title>HowTo</title>
-  <%= stylesheet_link_tag    "how_to/application", media: "all" %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= content_for?(:title) ? yield(:title) : "App Name" %></title>
+  <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "App desc" %>">
+  <%= stylesheet_link_tag "how_to/application", :media => "all" %>
   <%= javascript_include_tag "how_to/application" %>
   <%= csrf_meta_tags %>
+  <%= yield(:head) %>
 </head>
-<body>
-
-<%= yield %>
-
+<body class="<%= controller_name %> <%= action_name %>">
+<header class="navbar navbar-fixed-top">
+  <nav class="navbar-inner">
+    <div class="container">
+      <%= render 'layouts/how_to/navigation' %>
+    </div>
+  </nav>
+</header>
+<section class="content-wapper">
+  <div id="main" role="main" class="clearfix">
+    <div class="container-fluid">
+      <div class="content">
+        <div class="row-fluid">
+          <div class="span12">
+            <%= render 'layouts/how_to/messages' %>
+            <%= yield %>
+          </div>
+        </div>
+        <footer>
+        </footer>
+      </div>
+    </div>
+  </div>
+</section>
 </body>
 </html>
