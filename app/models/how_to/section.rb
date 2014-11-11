@@ -16,9 +16,9 @@ module HowTo
     scope :with_content, where("contents_count > 0")
     scope :ordered, order("position ASC")
 
-    class Translation
-      attr_accessible :locale, :name
-    end
+    # class Translation
+    #   attr_accessible :locale, :name
+    # end
 
     private
 

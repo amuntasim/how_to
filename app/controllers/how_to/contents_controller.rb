@@ -32,7 +32,7 @@ module HowTo
     end
 
     def create
-      @content = Content.new(params[:content])
+      @content = Content.new(content_params)
 
       respond_to do |format|
         if @content.save
@@ -47,7 +47,7 @@ module HowTo
       @content = Content.find(params[:id])
 
       respond_to do |format|
-        if @content.update_attributes(params[:content])
+        if @content.update_attributes(content_params)
           format.html { redirect_to @content, notice: 'Content was successfully updated.' }
         else
           format.html { render action: "edit" }
@@ -62,6 +62,11 @@ module HowTo
       respond_to do |format|
         format.html { redirect_to contents_url }
       end
+    end
+
+    private
+    def content_params
+      params.require(:content).permit(:section_id, :title, :description, :position)
     end
   end
 end

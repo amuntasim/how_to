@@ -14,9 +14,9 @@ module HowTo
     include TranslationUtil
     allow_multi_locales_edit(*I18n.available_locales)
 
-    class Translation
-      attr_accessible :locale, :title, :description
-    end
+    # class Translation
+    #   attr_accessible :locale, :title, :description
+    # end
 
     private
 

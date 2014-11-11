@@ -2,9 +2,9 @@ PATH
   remote: .
   specs:
     how_to (1.0.1)
-      awesome_nested_set
+      awesome_nested_set (>= 2.1.0)
       globalize
-      rails (>= 4.0, < 4.1)
+      rails (~> 4.0.1)
 
 GEM
   remote: https://rubygems.org/

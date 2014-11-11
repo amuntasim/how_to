@@ -12,9 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require bootstrap
-//= require how_to/chosen.jquery.min
-//= require_self
+//= require_tree .
 
 $(document).ready(function(){
     $('[chosen-enabled="true"]').chosen();
