@@ -11,7 +11,7 @@
     <% @contents.each do |content| %>
       <tr>
         <td><%= link_to content.title, content_path(content) %></td>
-        <td><%= content.section.name %></td>
+        <td><%= content.section.try(:name) %></td>
         <td>
           <%= link_to 'Edit', edit_content_path(content), :class => 'btn btn-mini' %>
           <%= link_to 'Destroy', content_path(content), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
