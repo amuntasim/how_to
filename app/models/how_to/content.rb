@@ -6,7 +6,7 @@ module HowTo
 
     translates :title, :description
     belongs_to :section, :counter_cache => true
-    scope :active, where(active: true)
+    scope :active, -> { where(active: true) }
 
     before_save :fix_counter_cache, :if => ->(c) { !c.new_record? && c.section_id_changed? }
 
