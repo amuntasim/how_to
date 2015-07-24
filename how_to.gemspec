@@ -18,7 +18,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency "rails", "~> 4.0"
   s.add_dependency "globalize"
-  s.add_dependency "awesome_nested_set", ">= 2.1.0"
+  s.add_dependency "awesome_nested_set", "~> 3.0"
 
   s.add_development_dependency "sqlite3"
 end
