@@ -1,3 +1,92 @@
 = HowTo
 
+Rails engine that makes managing faq/manual easy and simple. Multilingual CMS for managing faq, question/answer, manual etc.
+
+=begin
+{Live Demo}[http://how-to-demo.herokuapp.com]
+
+{Live demo source code}[https://github.com/railscash/how_to_demo]
+=end
+   
+===Usage
+======Include the gem in your Gemfile and bundle to install the gem.
+  
+  gem 'how_to'
+
+====You may need to add the following gems if you want to use default layout for how_to. See layout customization section for more details
+  
+  gem "jquery-rails"
+  gem 'bootstrap-sass'
+  gem 'sass-rails',   '~> 3.2.5'
+
+
+===== Install the migrations
+  rake how_to:install:migrations
+
+===== Run db migrations
+  rake db:migrate
+
+  
+===== Mount in your application's route
+  mount HowTo::Engine => "/how_to"
+
+===== You can also get the configuration file and overrides by running the config generator.
+  rails g how_to:config
+ 
+Details are documented in config file, so please read the config file carefully.
+
+====== rake db:migrate and visit mounted location, e.g.
+
+  localhost:3000/how_to
+  
+You should see the public page. You should also see two links on head section named sections and contents. if you override the authorization methods (described in later section) make sure you have permissions to access those pages.
+
+===Modules
+Two models are there.
+
+==== Section
+You can have multilevel section. You can consider this as category. Sections are hierarchical, but only leaves are eligible to have contents 
+
+
+==== Content
+You can create content as question/answer or faq under a specific section. If you love rich text editor for content then see the last section of Readme.
+
+
+===== Sample helper methods you may need to define them in your application controller
+
+  def authorize_to_manage_how_to! #you can set the method name in config file
+    redirect_to :root, :notice => t('notifications.admin_section_access_error') unless admin?
+  end
+
+  def allowed_to_view_how_to #you can set the method name in config file
+    redirect_to main_app.root_path, :notice => t('notifications.admin_section_access_error') unless current_user
+  end
+
+  def permitted_to_manage_how_to? #you can set the method name in config file
+    admin?
+  end
+
+
+===== Optionaly you can customise the layout and view page using:
+======this will generate layout and associated partials under views/layouts/how_to/
+  rails g how_to:layout
+  
+  
+  
+======this will generate the public page for faq/manual  under views/how_to/    
+  rails g how_to:view 
+
+
+
+
+=== If you want to use rich text editor to manage your content HowTo uses Mercury gem for it. Just install mercury gem and configure as per your requirements. Visit https://github.com/jejacks0n/mercury for more details
+Then set 
+  config.rich_text_enabled = true
+in initializers/how_to_config.rb file
+
+
+====For any issues feel free to contact with me or use issue tracker. Drop me a line to ahmed2tul@gmail.com 
+
+
+
 This project rocks and uses MIT-LICENSE.
