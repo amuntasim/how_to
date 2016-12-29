@@ -85,8 +85,6 @@ Then set
 in initializers/how_to_config.rb file
 
 
-====For any issues feel free to contact with me or use issue tracker. Drop me a line to ahmed2tul@gmail.com 
-
-
+====For any issues feel free to contact with me or use issue tracker. Drop me a line to ahmed2tul@gmail.com
 
 This project rocks and uses MIT-LICENSE.
