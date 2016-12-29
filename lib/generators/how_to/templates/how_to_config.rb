@@ -2,6 +2,7 @@ HowTo.configure do |config|
   #to enable rich text editor make the following line uncommented with the value true
   #HowTo uses mercury  <https://github.com/jejacks0n/mercury> for rich text editor
   #You have to install mercury to your application
+  # rich_text is not working now
   #config.rich_text_enabled = false
 
   # You can override the layout name
