@@ -1,5 +1,5 @@
 require 'rubygems'
-require 'globalize3'
+require 'globalize'
 require 'awesome_nested_set'
 
 

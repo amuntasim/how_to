@@ -6,7 +6,7 @@ module HowTo
 
     translates :title, :description
     belongs_to :section, :counter_cache => true
-    scope :active, where(active: true)
+    scope :active, -> { where(active: true) }
 
     before_save :fix_counter_cache, :if => ->(c) { !c.new_record? && c.section_id_changed? }
 
@@ -14,9 +14,9 @@ module HowTo
     include TranslationUtil
     allow_multi_locales_edit(*I18n.available_locales)
 
-    class Translation
-      attr_accessible :locale, :title, :description
-    end
+    # class Translation
+    #   attr_accessible :locale, :title, :description
+    # end
 
     private
 

@@ -34,38 +34,34 @@
         </div>
       </div>
 
-      <% I18n.available_locales.each do |locale| %>
           <div class="control-group">
-            <%= f.label :title, "Title for #{locale}", :class => 'control-label' %>
+            <%= f.label :title, :class => 'control-label' %>
             <div class="controls">
               <% if HowTo.config.rich_text_enabled %>
-                  <div target_id="<%= "content_i18n_#{locale.to_s}_title" %>" contenteditable="true" data-mercury="full" class="text_field_overide text_title">
+                  <div target_id="<%= "title" %>" contenteditable="true" data-mercury="full" class="text_field_overide text_title">
                     <%= raw f.object.send("i18n_#{locale.to_s}_title".to_sym) %>
                   </div>
-                  <%= f.hidden_field "i18n_#{locale.to_s}_title", :class => 'text_field' %>
+                  <%= f.hidden_field "title", :class => 'text_field' %>
               <% else %>
-                  <%= f.text_field "i18n_#{locale.to_s}_title", :class => 'text_field text_field_overide text_title' %>
+                  <%= f.text_field "title", :class => 'text_field text_field_overide text_title' %>
               <% end %>
             </div>
           </div>
-      <% end %>
 
-      <% I18n.available_locales.each do |locale| %>
           <div class="control-group">
-            <%= f.label :description, "Description for #{locale}", :class => 'control-label' %>
+            <%= f.label :description,  :class => 'control-label' %>
             <div class="controls">
               <% if HowTo.config.rich_text_enabled %>
-                  <div target_id="<%= "content_i18n_#{locale.to_s}_description" %>" contenteditable="true" data-mercury="full" class="text_field_overide text_description">
+                  <div target_id="<%= "description" %>" contenteditable="true" data-mercury="full" class="text_field_overide text_description">
                     <%= raw f.object.send("i18n_#{locale.to_s}_description".to_sym) %>
                   </div>
 
-                  <%= f.hidden_field "i18n_#{locale.to_s}_description", :class => 'text_field' %>
+                  <%= f.hidden_field "description", :class => 'text_field' %>
               <% else %>
-                  <%= f.text_area "i18n_#{locale.to_s}_description", :class => 'text_field text_field_overide text_description' %>
+                  <%= f.text_area "description", :class => 'text_field text_field_overide text_description' %>
               <% end %>
             </div>
           </div>
-      <% end %>
 
 
       <div class="control-group">

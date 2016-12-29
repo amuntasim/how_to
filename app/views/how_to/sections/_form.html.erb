@@ -9,15 +9,13 @@
         </div>
       </div>
 
-      <% I18n.available_locales.each do |locale| %>
           <div class="control-group">
-            <%= f.label :name, "Name for #{locale}", :class => 'control-label' %>
+            <%= f.label :name, :class => 'control-label' %>
             <div class="controls">
-              <%= f.text_field "i18n_#{locale.to_s}_name", :class => 'text_field' %>
+              <%= f.text_field :name, :class => 'text_field' %>
             </div>
           </div>
 
-      <% end %>
 
       <div class="control-group">
         <%= f.label :position, :class => 'control-label' %>

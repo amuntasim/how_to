@@ -10,15 +10,15 @@ module HowTo
     include HowTo::TranslationUtil
     allow_multi_locales_edit(*I18n.available_locales)
 
-    scope :active, where(active: true)
-    scope :roots_only, where(:parent_id => nil)
-    scope :without, ->(id) {   where("id <> ? ", id) if id.present?}
-    scope :with_content, where("contents_count > 0")
-    scope :ordered, order("position ASC")
+    scope :active, -> { where(active: true) }
+    scope :roots_only, -> { where(:parent_id => nil) }
+    scope :without, ->(id) { where("id <> ? ", id) if id.present? }
+    scope :with_content, -> { where("contents_count > 0") }
+    scope :ordered, -> { order("position ASC") }
 
-    class Translation
-      attr_accessible :locale, :name
-    end
+    # class Translation
+    #   attr_accessible :locale, :name
+    # end
 
     private
 

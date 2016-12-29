@@ -32,7 +32,7 @@ module HowTo
     end
 
     def create
-      @section = Section.new(params[:section])
+      @section = Section.new(section_params)
 
       respond_to do |format|
         if @section.save
@@ -47,7 +47,7 @@ module HowTo
       @section = Section.find(params[:id])
 
       respond_to do |format|
-        if @section.update_attributes(params[:section])
+        if @section.update_attributes(section_params)
           format.html { redirect_to @section, notice: 'Section was successfully updated.' }
         else
           format.html { render action: "edit" }
@@ -62,6 +62,10 @@ module HowTo
       respond_to do |format|
         format.html { redirect_to sections_url }
       end
+    end
+   private
+    def section_params
+      params.require(:section).permit(:parent_id, :name, :position)
     end
   end
 end
